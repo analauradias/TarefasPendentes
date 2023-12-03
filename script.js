@@ -1,19 +1,33 @@
-let texto = document.querySelector("#descricao");
-let adicionar = document.querySelector("#adicionar");
-let tarefas = document.querySelector("#tarefas");
+let pendentes = document.querySelector("#pendentes");
+let inputText = document.querySelector("#inputText");
+let adicionar = document.querySelector("#adicionarBtn");
 let finalizadas = document.querySelector("#finalizadas");
 
-adicionar.addEventListener("click", function () {
-    add(descricao.value);
-});
+adicionar.addEventListener("click", function(){
+    add(inputText.value);
+})
 
+function add(text) {
+    if (text !== '') {
+        let lista = document.createElement('li');
+        lista.textContent = text;
 
-function add(texto) {
-    if(texto != ''){
-        tarefas.innerHTML += '<li>' + texto + '-' + '<a href="#" id="finalizar" onclick(tirar)>FEITA</a>' + '</li>';
+        let button = document.createElement('button');
+        button.textContent = "FINALIZADA";
+
+        button.addEventListener('click', function(){
+            finalizar(lista);
+        });
+
+        lista.appendChild(button);
+
+        pendentes.appendChild(lista);
     }
 }
 
-function tirar() {
-    alert(`fds`);
+function finalizar(lista) {
+    let botao = document.querySelector("button");
+    pendentes.removeChild(lista);
+    finalizadas.appendChild(lista);
+    botao.parentNode.removeChild(botao);
 }

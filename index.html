@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
+    <div id="main">
     <h2>Tarefas Pendentes</h2>
-    <ul id="tarefas">
+    <ul id="pendentes">
     </ul>
-    <input type="text" name="descricao" id="descricao">
+    <input type="text" id="inputText">
     <br>
-    <input type="button"  value="Adicionar" id="adicionar">
+    <input type="button" value="Adicionar" id="adicionarBtn">
     <br>
     <h3>Tarefas Finalizadas</h3>
-    <ul id="finalizadas">
+    <ul id="finalizadas" >
     </ul>
     <script type="text/javascript" src="script.js"></script>
+</div>
 </body>
 </html>
