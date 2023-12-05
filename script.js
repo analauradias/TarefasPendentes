@@ -37,7 +37,7 @@ function limpar(inputText) {
 }
 function finalizar(lista, botao) {
     let removeBotao = lista.removeChild(botao);
-    let cloneTarefa = lista.cloneNode(true);
+    let clone = lista.cloneNode(true);
     lista.remove();
-    finalizadas.appendChild(cloneTarefa);
+    finalizadas.appendChild(clone);
 }
