@@ -5,18 +5,19 @@ let finalizadas = document.querySelector("#finalizadas");
 
 adicionar.addEventListener("click", function(){
     add(inputText.value);
+    limpar(inputText);
 })
 
 function add(text) {
     if (text !== '') {
         let lista = document.createElement('li');
         lista.textContent = text;
-
+        
         let button = document.createElement('button');
         button.textContent = "FINALIZADA";
 
         button.addEventListener('click', function(){
-            finalizar(lista);
+            finalizar(lista, button);
         });
 
         lista.appendChild(button);
@@ -25,9 +26,18 @@ function add(text) {
     }
 }
 
-function finalizar(lista) {
-    let botao = document.querySelector("button");
-    pendentes.removeChild(lista);
-    finalizadas.appendChild(lista);
-    botao.parentNode.removeChild(botao);
+inputText.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        add(inputText.value);
+        limpar(inputText);
+    }
+});
+function limpar(inputText) {
+    inputText.value = '';
+}
+function finalizar(lista, botao) {
+    let removeBotao = lista.removeChild(botao);
+    let cloneTarefa = lista.cloneNode(true);
+    lista.remove();
+    finalizadas.appendChild(cloneTarefa);
 }
