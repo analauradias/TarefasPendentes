@@ -23,6 +23,8 @@ function add(text) {
         lista.appendChild(button);
 
         pendentes.appendChild(lista);
+
+        inputText.focus();
     }
 }
 
